@@ -1,0 +1,19 @@
+import java.util.*;
+class SetA_2
+{
+  public static void main(String args[])
+  {
+	  int n;
+	  LinkedList ll=new LinkedList();
+	  Scanner sc =new Scanner(System.in);	
+	  System.out.println("Enter n :");
+    System.out.println("Enter "  + n +" freind name  :");
+	  n=sc.nextInt();
+	  for(int i=0;i<=n;i++)
+	    {
+		    String name=sc.nextLine();
+		    ll.add(name);
+	    }
+	  System.out.println(ll);
+	}
+}
