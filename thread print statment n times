@@ -1,0 +1,37 @@
+import java.io.*;
+import java.lang.String.*;
+
+class ThreadSetA1 extends Thread
+{
+            String msg="";
+                        int  n;
+                        ThreadSetA1(String msg,int n)
+                        {
+                                    this.msg=msg;
+                                                this.n=n;
+                        }
+            public void run()
+            {
+                        try
+                        {           for(int i=1;i<=n;i++)
+                                    {
+                                                System.out.println(msg+" "+i+" times");
+                                    }
+                                    System.out.println("\n ");
+                        }
+                        catch(Exception e){}
+            }
+}
+class SlipAT_2
+{
+            public static void main(String a[])
+            {
+                        int n=Integer.parseInt(a[0]);
+                                    ThreadSetA1 t1=new ThreadSetA1("COVID19",n);
+                                    t1.start();
+                                   ThreadSetA1 t2=new ThreadSetA1("LOCKDOWN2020",n+10);
+                                    t2.start();
+                                    ThreadSetA1 t3=new ThreadSetA1("VACCINATED2021",n+20);
+                                    t3.start();
+            }
+}
