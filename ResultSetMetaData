@@ -1,0 +1,45 @@
+import java.sql.*;
+import java.io.*;
+public class ResultSetMetaData
+{
+ public static void main(String a[]) throws Exception
+ {
+  Connection con=null;
+  Statement stmt;
+try{
+  Class.forName("org.postgresql.Driver");
+  con=DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres”,”postgres”,”123”);
+}
+catch(Exception e)
+{
+e.printStackTrace();
+}
+if(conn!=null)
+{ 
+System.out.println(“Connected to database”);
+}
+else
+{
+System.out.println(“Not connected to database”);
+}
+stmt = conn.createStatement();
+
+   ResultSet rs = stmt.executeQuery("Select * from product");
+
+    java.sql.ResultSetMetaData rsmd = rs.getMetaData();
+
+    int noOfColumns = rsmd.getColumnCount();
+
+    System.out.println("Number of columns = " + noOfColumns);
+
+    for(int i=1; i<=noOfColumns; i++)
+    {
+
+       System.out.println("Column No : " + i);
+       System.out.println("Column Name : " + rsmd.getColumnName(i));
+       System.out.println("Column Type : " + rsmd.getColumnTypeName(i));
+      System.out.println("Column display size : " + rsmd.getColumnDisplaySize(i));
+    }
+    conn.close();
+ }
+}
