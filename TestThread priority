@@ -1,0 +1,73 @@
+//Thread creation by implementing Runnable Interface
+class MyThread implements Runnable
+{
+//@Override
+	public void run()
+	{
+		for(int i=0;i<10;i++)
+		{
+			System.out.println("User Thread :"+ i +Thread.currentThread().getName());
+		}
+	}
+}
+class TestTR
+{
+public static void main(String[] args)
+{
+MyThread mt=new MyThread();
+//mt.run();
+
+Thread t=new Thread(mt);
+t.setName("Shubh");
+t.start();
+for(int i=0;i<10;i++)
+{
+ System.out.println("Main Thread :"+i+Thread.currentThread().getName());
+}
+}
+}
+//Thread creation by extending Thread class
+class MyThread extends Thread
+{
+//@Override
+	public void run()
+	{
+		for(int i=0;i<10;i++)
+		{
+			System.out.println("User Thread :"+ i +Thread.currentThread().getName());
+		}
+	}
+}
+class TestT1
+{
+public static void main(String[] args)
+{
+MyThread mt=new MyThread();
+
+//mt.run();
+mt.setName("Shubh");
+mt.start();
+for(int i=0;i<10;i++)
+{
+ System.out.println("Main Thread :"+i+Thread.currentThread().getName());
+}
+}
+}
+//Demonstrating Priority of a Thread
+class PriorityDemo extends Thread
+{
+public void run()
+{
+System.out.println("running thread name is:"+Thread.currentThread().getName());
+System.out.println("running thread priority is:"+Thread.currentThread().getPriority());
+}
+public static void main(String args[])
+{
+PriorityDemo m1=new PriorityDemo();
+PriorityDemo m2=new PriorityDemo();
+m1.setPriority(Thread.MIN_PRIORITY);
+m2.setPriority(Thread.MAX_PRIORITY);
+m1.start();
+m2.start();
+}
+}
