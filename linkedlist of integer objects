@@ -1,0 +1,20 @@
+import java.util.*;
+class TestLL
+{
+  public static void main(String args[])
+  {
+    LinkedList ll=new LinkedList();
+    ll.add("S");
+    ll.add("A");
+    ll.add("B");
+    ll.add(1);
+    ll.add("B");
+    ll.add("\0");
+    System.out.println(ll);
+    ll.addFirst("Z");
+    System.out.println(ll);
+    System.out.println(ll.getFirst());
+    System.out.println(ll.removeLast());
+    System.out.println(ll.size());
+  }
+}
